@@ -16,6 +16,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsdx build",
+    "prepare": "npm run build",
     "release": "env-cmd -f .env release-it"
   },
   "repository": {

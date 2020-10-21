@@ -1,5 +1,11 @@
 {
   "github": {
-    "release": true
+    "tag": true,
+    "push": true,
+    "commit": true,
+    "requireBranch": "master"
+  },
+  "npm": {
+    "publish": true
   }
 }

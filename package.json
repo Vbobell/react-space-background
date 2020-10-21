@@ -6,6 +6,7 @@
   "devDependencies": {
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "env-cmd": "^10.1.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "release-it": "^14.2.0",
@@ -15,7 +16,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "release-it"
+    "release": "env-cmd -f .env release-it"
   },
   "repository": {
     "type": "git",

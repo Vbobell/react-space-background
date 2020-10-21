@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import {
-  useSpaceBackgroundState,
-  useSpaceBackgroundDispatch,
+  useSpaceBackgroundContext,
   setCanvasDimensions,
   fillStars,
   renderStar,
@@ -14,8 +13,7 @@ export const SpaceBackground: React.FC<Props> = ({
   height = 0,
   ...props
 }) => {
-  const state = useSpaceBackgroundState();
-  const dispatch = useSpaceBackgroundDispatch();
+  const [state, dispatch] = useSpaceBackgroundContext();
   const { stars, numStars, innerWidth, innerHeight } = state;
   const canvasRef = useRef(null);
 
@@ -33,7 +31,7 @@ export const SpaceBackground: React.FC<Props> = ({
     }
 
     initCanvas();
-  }, [width, height, dispatch]);
+  }, [width, height, dispatch, canvasRef]);
 
   useEffect(() => {
     function initStars() {
@@ -50,7 +48,7 @@ export const SpaceBackground: React.FC<Props> = ({
     }
 
     initStars();
-  }, [numStars, innerWidth, innerHeight, dispatch]);
+  }, [numStars, innerWidth, innerHeight, dispatch, canvasRef]);
 
   useEffect(() => {
     function initRenderStars() {
@@ -67,7 +65,7 @@ export const SpaceBackground: React.FC<Props> = ({
     }
 
     initRenderStars();
-  }, [stars, innerWidth, innerHeight, dispatch]);
+  }, [stars, innerWidth, innerHeight, dispatch, canvasRef]);
 
   return <canvas ref={canvasRef} {...props}></canvas>;
 };

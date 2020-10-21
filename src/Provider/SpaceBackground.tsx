@@ -82,6 +82,13 @@ export function useSpaceBackgroundDispatch() {
   return context;
 }
 
+export function useSpaceBackgroundContext(): [
+  SpaceBackground,
+  Dispatch<DISPATCH>
+] {
+  return [useSpaceBackgroundState(), useSpaceBackgroundDispatch()];
+}
+
 export function setCanvasDimensions(
   dispatch: Dispatch<DISPATCH>,
   { width, height, canvas }: Canvas

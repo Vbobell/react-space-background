@@ -2,7 +2,12 @@
   "name": "react-space-background",
   "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/react-space-background.esm.js",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",

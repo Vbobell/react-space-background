@@ -4,15 +4,17 @@ import {
   setCanvasDimensions,
   fillStars,
   renderStar,
+  SpaceBackgroundProvider,
 } from "../Provider/SpaceBackground";
 
-interface Props extends React.CanvasHTMLAttributes<HTMLCanvasElement> {}
+export interface SpaceBackgroundProps
+  extends React.CanvasHTMLAttributes<HTMLCanvasElement> {}
 
-export const SpaceBackground: React.FC<Props> = ({
+export function SpaceBackgroundCanvas({
   width = 0,
   height = 0,
   ...props
-}) => {
+}: SpaceBackgroundProps) {
   const [state, dispatch] = useSpaceBackgroundContext();
   const { stars, numStars, innerWidth, innerHeight } = state;
   const canvasRef = useRef(null);
@@ -68,4 +70,12 @@ export const SpaceBackground: React.FC<Props> = ({
   }, [stars, innerWidth, innerHeight, dispatch, canvasRef]);
 
   return <canvas ref={canvasRef} {...props}></canvas>;
-};
+}
+
+export function SpaceBackground(props: SpaceBackgroundProps) {
+  return (
+    <SpaceBackgroundProvider>
+      <SpaceBackgroundCanvas {...props} />
+    </SpaceBackgroundProvider>
+  );
+}

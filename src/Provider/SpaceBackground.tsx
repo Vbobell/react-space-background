@@ -44,7 +44,14 @@ const spaceBackgroundReducer = (state: SpaceBackground, action: DISPATCH) => {
   }
 };
 
-export function SpaceBackgroundProvider({ children = null, ...props }) {
+export interface SpaceBackgroundProviderProps extends SpaceBackground {
+  children?: JSX.Element | JSX.Element[];
+}
+
+export function SpaceBackgroundProvider({
+  children,
+  ...props
+}: SpaceBackgroundProviderProps) {
   const [state, dispatch] = useReducer(spaceBackgroundReducer, {
     ...initialContext,
   });

@@ -3,7 +3,7 @@
     "tag": true,
     "push": true,
     "commit": true,
-    "requireBranch": "master"
+    "requireBranch": "main"
   },
   "npm": {
     "publish": true

@@ -48,7 +48,7 @@ export function SpaceBackgroundProvider({
   children,
   ...props
 }: {
-  children: HTMLElement;
+  children: any;
 }) {
   const [state, dispatch] = useReducer(spaceBackgroundReducer, {
     ...initialContext,

@@ -38,12 +38,10 @@
   "release-it": {
     "github": {
       "release": true
-    },
-    "hooks": {
-      "before:npm:release": "echo \"//registry.npmjs.org/:_authToken=$NPM_TOKEN\" > .npmrc"
     }
   },
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org"
   }
 }
